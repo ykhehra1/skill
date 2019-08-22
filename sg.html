@@ -1,0 +1,10 @@
+<script type="text/javascript">
+$(document).ready(function(){
+   var stream = { mp3: "http://sgpc.net:8000" },
+   ready = false;   $("#jquery_jplayer_1").jPlayer({
+   ready: function () {ready = true; $(this).jPlayer("setMedia", stream).jPlayer("play"); },
+   pause: function() {$(this).jPlayer("clearMedia");}, error: function(event) {
+    if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+        $(this).jPlayer("setMedia", stream).jPlayer("play"); }},
+   solution: "flash, html", swfPath: "/player/flash/player.swf", supplied: "mp3" });});
+</script>
